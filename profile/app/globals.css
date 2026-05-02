@@ -1,0 +1,998 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-mono);
+    --font-mono: var(--font-mono);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-hud: var(--hud);
+    --color-hud-dim: var(--hud-dim);
+    --color-hud-glow: var(--hud-glow);
+    --color-grid: var(--grid);
+    --color-warn: var(--warn);
+    --color-info: var(--info);
+    --color-ok: var(--ok);
+    --radius-sm: 0;
+    --radius-md: 0;
+    --radius-lg: 0;
+    --radius-xl: 0;
+    --radius-2xl: 0;
+    --radius-3xl: 0;
+    --radius-4xl: 0;
+}
+
+:root {
+    color-scheme: light;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --background: oklch(0.99 0.003 25);
+    --foreground: oklch(0.18 0.01 25);
+    --card: oklch(0.97 0.005 25);
+    --card-foreground: oklch(0.18 0.01 25);
+    --popover: oklch(0.99 0.003 25);
+    --popover-foreground: oklch(0.18 0.01 25);
+    --primary: oklch(0.58 0.22 25);
+    --primary-foreground: oklch(0.99 0.005 25);
+    --secondary: oklch(0.94 0.01 25);
+    --secondary-foreground: oklch(0.2 0.01 25);
+    --muted: oklch(0.95 0.005 25);
+    --muted-foreground: oklch(0.5 0.02 25);
+    --accent: oklch(0.62 0.24 25);
+    --accent-foreground: oklch(0.99 0.005 25);
+    --destructive: oklch(0.58 0.22 25);
+    --border: oklch(0.85 0.04 25);
+    --input: oklch(0.9 0.02 25);
+    --ring: oklch(0.62 0.22 25);
+    --chart-1: oklch(0.62 0.24 25);
+    --chart-2: oklch(0.55 0.2 25);
+    --chart-3: oklch(0.45 0.15 25);
+    --chart-4: oklch(0.35 0.1 25);
+    --chart-5: oklch(0.25 0.06 25);
+    --radius: 0;
+    --sidebar: oklch(0.97 0.005 25);
+    --sidebar-foreground: oklch(0.18 0.01 25);
+    --sidebar-primary: oklch(0.58 0.22 25);
+    --sidebar-primary-foreground: oklch(0.99 0.005 25);
+    --sidebar-accent: oklch(0.94 0.01 25);
+    --sidebar-accent-foreground: oklch(0.2 0.01 25);
+    --sidebar-border: oklch(0.85 0.04 25);
+    --sidebar-ring: oklch(0.62 0.22 25);
+    --hud: oklch(0.62 0.24 25);
+    --hud-dim: oklch(0.45 0.18 25);
+    --hud-glow: oklch(0.7 0.26 22);
+    --grid: oklch(0.85 0.02 25 / 25%);
+    --warn: oklch(0.78 0.18 75);
+    --info: oklch(0.7 0.13 215);
+    --ok: oklch(0.7 0.18 145);
+}
+
+.dark {
+    color-scheme: dark;
+    --background: oklch(0.13 0.01 25);
+    --foreground: oklch(0.95 0.005 25);
+    --card: oklch(0.16 0.015 25);
+    --card-foreground: oklch(0.95 0.005 25);
+    --popover: oklch(0.16 0.015 25);
+    --popover-foreground: oklch(0.95 0.005 25);
+    --primary: oklch(0.65 0.25 25);
+    --primary-foreground: oklch(0.13 0.01 25);
+    --secondary: oklch(0.22 0.02 25);
+    --secondary-foreground: oklch(0.95 0.005 25);
+    --muted: oklch(0.22 0.02 25);
+    --muted-foreground: oklch(0.68 0.03 25);
+    --accent: oklch(0.7 0.26 22);
+    --accent-foreground: oklch(0.13 0.01 25);
+    --destructive: oklch(0.65 0.25 25);
+    --border: oklch(0.45 0.18 25 / 35%);
+    --input: oklch(0.4 0.15 25 / 30%);
+    --ring: oklch(0.65 0.25 25);
+    --chart-1: oklch(0.7 0.26 22);
+    --chart-2: oklch(0.62 0.23 25);
+    --chart-3: oklch(0.5 0.18 25);
+    --chart-4: oklch(0.38 0.13 25);
+    --chart-5: oklch(0.26 0.08 25);
+    --sidebar: oklch(0.16 0.015 25);
+    --sidebar-foreground: oklch(0.95 0.005 25);
+    --sidebar-primary: oklch(0.65 0.25 25);
+    --sidebar-primary-foreground: oklch(0.13 0.01 25);
+    --sidebar-accent: oklch(0.22 0.02 25);
+    --sidebar-accent-foreground: oklch(0.95 0.005 25);
+    --sidebar-border: oklch(0.45 0.18 25 / 35%);
+    --sidebar-ring: oklch(0.65 0.25 25);
+    --hud: oklch(0.7 0.26 22);
+    --hud-dim: oklch(0.45 0.18 25);
+    --hud-glow: oklch(0.78 0.24 20);
+    --grid: oklch(0.65 0.2 25 / 12%);
+    --warn: oklch(0.85 0.2 80);
+    --info: oklch(0.78 0.16 215);
+    --ok: oklch(0.78 0.2 145);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image:
+      linear-gradient(to right, var(--grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid) 1px, transparent 1px),
+      radial-gradient(ellipse 80% 50% at 50% -20%, color-mix(in oklab, var(--hud) 18%, transparent), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 110%, color-mix(in oklab, var(--hud) 10%, transparent), transparent 70%);
+    background-size: 64px 64px, 64px 64px, 100% 100%, 100% 100%;
+    background-attachment: fixed;
+  }
+  button:not(:disabled), [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html {
+    @apply font-mono;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid var(--hud);
+    outline-offset: 2px;
+  }
+  :is(a, button, [role="button"], [tabindex]):focus-visible {
+    outline: 2px solid var(--hud);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--hud) 20%, transparent);
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--hud) 35%, transparent);
+    color: var(--foreground);
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  .skip-link {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    z-index: 100;
+    padding: 0.5rem 0.875rem;
+    border: 1px solid var(--hud);
+    background: var(--background);
+    color: var(--hud);
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transform: translateY(-150%);
+    transition: transform 180ms var(--ease-out);
+  }
+  .skip-link:focus {
+    transform: translateY(0);
+    outline: none;
+  }
+}
+
+@layer utilities {
+  .hud-frame {
+    position: relative;
+    border: 1px solid color-mix(in oklab, var(--hud) 55%, transparent);
+    background: color-mix(in oklab, var(--card) 88%, transparent);
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--hud) 8%, transparent) inset,
+      0 0 24px color-mix(in oklab, var(--hud) 8%, transparent),
+      0 0 80px color-mix(in oklab, var(--hud) 6%, transparent);
+  }
+
+  .hud-frame::before,
+  .hud-frame::after,
+  .hud-frame > .hud-corner-bl,
+  .hud-frame > .hud-corner-br {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: var(--hud);
+    border-style: solid;
+    pointer-events: none;
+  }
+  .hud-frame::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+  }
+  .hud-frame::after {
+    top: -1px;
+    right: -1px;
+    border-width: 2px 2px 0 0;
+  }
+  .hud-frame > .hud-corner-bl {
+    bottom: -1px;
+    left: -1px;
+    border-width: 0 0 2px 2px;
+  }
+  .hud-frame > .hud-corner-br {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+  }
+
+  .hud-divider {
+    background-image: linear-gradient(
+      to right,
+      color-mix(in oklab, var(--hud) 60%, transparent) 0 6px,
+      transparent 6px 12px
+    );
+    background-size: 12px 1px;
+    background-repeat: repeat-x;
+    background-position: 0 50%;
+    height: 1px;
+  }
+
+  .hud-divider-v {
+    background-image: linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--hud) 60%, transparent) 0 6px,
+      transparent 6px 12px
+    );
+    background-size: 1px 12px;
+    background-repeat: repeat-y;
+    background-position: 50% 0;
+    width: 1px;
+  }
+
+  .hud-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.125rem 0.5rem;
+    border: 1px solid var(--hud);
+    color: var(--hud);
+    background: color-mix(in oklab, var(--hud) 12%, transparent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.6875rem;
+    line-height: 1.4;
+  }
+  .hud-tag::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--hud);
+    box-shadow: 0 0 6px var(--hud);
+  }
+
+  .hud-label {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted-foreground);
+  }
+
+  .hud-glow-text {
+    color: var(--hud);
+    text-shadow: 0 0 12px color-mix(in oklab, var(--hud) 50%, transparent);
+  }
+
+  .scanline {
+    position: relative;
+    overflow: hidden;
+  }
+  .scanline::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0 2px,
+      color-mix(in oklab, var(--hud) 5%, transparent) 2px 3px
+    );
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  .pixel-skull {
+    image-rendering: pixelated;
+  }
+
+  @keyframes hud-blink {
+    0%, 60% { opacity: 1; }
+    61%, 100% { opacity: 0.25; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hud-blink {
+      animation: hud-blink 1.4s steps(1) infinite;
+    }
+  }
+
+  @keyframes hud-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hud-marquee {
+      animation: hud-marquee 60s linear infinite;
+    }
+  }
+
+  .diag-stripes {
+    background-image: repeating-linear-gradient(
+      135deg,
+      var(--hud) 0 1px,
+      transparent 1px 8px
+    );
+    opacity: 0.5;
+  }
+
+  .diag-stripes-warn {
+    background-image: repeating-linear-gradient(
+      135deg,
+      var(--warn) 0 2px,
+      transparent 2px 10px
+    );
+    opacity: 0.4;
+  }
+
+  .dot-noise {
+    background-image: radial-gradient(
+      circle,
+      color-mix(in oklab, var(--hud) 35%, transparent) 1px,
+      transparent 1.5px
+    );
+    background-size: 18px 18px;
+  }
+
+  @keyframes hud-pulse {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hud-pulse {
+      animation: hud-pulse 2s ease-in-out infinite;
+    }
+  }
+
+  @keyframes hud-pulse-glow {
+    0%, 100% {
+      text-shadow: 0 0 8px color-mix(in oklab, var(--hud) 40%, transparent);
+    }
+    50% {
+      text-shadow:
+        0 0 16px color-mix(in oklab, var(--hud) 70%, transparent),
+        0 0 32px color-mix(in oklab, var(--hud) 35%, transparent);
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hud-glow-pulse {
+      animation: hud-pulse-glow 3.5s ease-in-out infinite;
+    }
+  }
+
+  @keyframes hud-scan {
+    0% { transform: translateY(-20%); opacity: 0; }
+    8%, 92% { opacity: 1; }
+    100% { transform: translateY(120%); opacity: 0; }
+  }
+  .hud-scanner {
+    position: relative;
+  }
+  .hud-scanner > .hud-scanner-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--hud) 30%, transparent) 20%,
+      var(--hud-glow) 50%,
+      color-mix(in oklab, var(--hud) 30%, transparent) 80%,
+      transparent
+    );
+    box-shadow: 0 0 12px var(--hud-glow);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hud-scanner > .hud-scanner-line {
+      animation: hud-scan 7s ease-in-out infinite;
+    }
+  }
+
+  .hud-cursor::after {
+    content: "_";
+    margin-left: 2px;
+    color: var(--hud);
+    font-weight: 700;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hud-cursor::after {
+      animation: hud-blink 1s steps(1) infinite;
+    }
+  }
+
+  .text-warn { color: var(--warn); }
+  .text-info { color: var(--info); }
+  .text-ok { color: var(--ok); }
+  .bg-warn { background-color: var(--warn); }
+  .bg-info { background-color: var(--info); }
+  .bg-ok { background-color: var(--ok); }
+
+  .hud-tag-warn {
+    border-color: var(--warn);
+    color: var(--warn);
+    background: color-mix(in oklab, var(--warn) 12%, transparent);
+  }
+  .hud-tag-warn::before { background: var(--warn); box-shadow: 0 0 6px var(--warn); }
+
+  .hud-tag-info {
+    border-color: var(--info);
+    color: var(--info);
+    background: color-mix(in oklab, var(--info) 12%, transparent);
+  }
+  .hud-tag-info::before { background: var(--info); box-shadow: 0 0 6px var(--info); }
+
+  .hud-tag-ok {
+    border-color: var(--ok);
+    color: var(--ok);
+    background: color-mix(in oklab, var(--ok) 12%, transparent);
+  }
+  .hud-tag-ok::before { background: var(--ok); box-shadow: 0 0 6px var(--ok); }
+
+  .hud-target {
+    position: relative;
+  }
+  .hud-target::before,
+  .hud-target::after,
+  .hud-target > .hud-target-bl,
+  .hud-target > .hud-target-br {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-color: var(--hud-glow);
+    border-style: solid;
+    pointer-events: none;
+    filter: drop-shadow(0 0 4px color-mix(in oklab, var(--hud-glow) 50%, transparent));
+  }
+  .hud-target::before {
+    top: -8px;
+    left: -8px;
+    border-width: 2px 0 0 2px;
+  }
+  .hud-target::after {
+    top: -8px;
+    right: -8px;
+    border-width: 2px 2px 0 0;
+  }
+  .hud-target > .hud-target-bl {
+    bottom: -8px;
+    left: -8px;
+    border-width: 0 0 2px 2px;
+  }
+  .hud-target > .hud-target-br {
+    bottom: -8px;
+    right: -8px;
+    border-width: 0 2px 2px 0;
+  }
+
+  @keyframes hud-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .hud-spin-slow {
+    transform-origin: center;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hud-spin-slow {
+      animation: hud-rotate 24s linear infinite;
+    }
+  }
+
+  @keyframes hud-typewriter {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  .hud-type {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hud-type {
+      animation: hud-typewriter 1.6s steps(28, end) both;
+    }
+  }
+}
+
+/* ===========================================================================
+ * Profile share card (/c/{login}) — Cyber overdrive.
+ * 3D tilt + spotlight + parallax + continuous scanline + ambient particles +
+ * holographic shimmer + animated border snake + glitch RGB + status indicator
+ * + grid pattern + idle motion (handled by GSAP).
+ * Tilt and depth are gated behind hover-capable input + no reduced-motion.
+ * ========================================================================= */
+
+@layer utilities {
+  /* Frame: 3D perspective context + entrance animation. */
+  .profile-card-frame {
+    perspective: 1400px;
+    perspective-origin: 50% 30%;
+    animation: profile-card-enter 750ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+
+  @keyframes profile-card-enter {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.96);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  /* Surface: tinted gradient background + subtle internal grid pattern.
+     Replaces bg-card/70 (which collapsed into the dark page background). */
+  .profile-card-surface {
+    background-color: color-mix(in oklab, var(--card) 92%, var(--hud) 8%);
+    background-image:
+      linear-gradient(
+        135deg,
+        color-mix(in oklab, var(--hud) 9%, transparent) 0%,
+        transparent 40%,
+        transparent 60%,
+        color-mix(in oklab, var(--hud-glow) 11%, transparent) 100%
+      ),
+      linear-gradient(
+        to right,
+        color-mix(in oklab, var(--hud) 6%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--hud) 6%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+    backdrop-filter: blur(8px);
+  }
+
+  .profile-card {
+    --rx: 0deg;
+    --ry: 0deg;
+    --mx: 50%;
+    --my: 50%;
+    transform: rotateX(var(--rx)) rotateY(var(--ry));
+    transform-style: preserve-3d;
+    will-change: transform;
+    border: 1px solid color-mix(in oklab, var(--hud) 45%, var(--border));
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--hud) 18%, transparent) inset,
+      0 0 60px -12px color-mix(in oklab, var(--hud) 32%, transparent),
+      0 24px 60px -16px color-mix(in oklab, var(--hud) 22%, transparent),
+      0 8px 24px -8px rgb(0 0 0 / 0.5);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .profile-card {
+      animation: profile-card-glow 4.5s ease-in-out infinite;
+    }
+  }
+
+  @keyframes profile-card-glow {
+    0%, 100% {
+      box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--hud) 18%, transparent) inset,
+        0 0 60px -12px color-mix(in oklab, var(--hud) 30%, transparent),
+        0 24px 60px -16px color-mix(in oklab, var(--hud) 22%, transparent),
+        0 8px 24px -8px rgb(0 0 0 / 0.5);
+    }
+    50% {
+      box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--hud) 30%, transparent) inset,
+        0 0 90px -8px color-mix(in oklab, var(--hud-glow) 50%, transparent),
+        0 24px 80px -12px color-mix(in oklab, var(--hud-glow) 35%, transparent),
+        0 8px 24px -8px rgb(0 0 0 / 0.5);
+    }
+  }
+
+  /* Body wrapper must propagate preserve-3d so children avatar/info actually
+     render their translateZ. Without this, the parallax depth is flattened. */
+  .profile-card-body {
+    transform-style: preserve-3d;
+  }
+
+  /* Corner brackets — signature HUD frame detail with glow. */
+  .profile-card-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    border-color: var(--hud);
+    border-style: solid;
+    filter: drop-shadow(0 0 6px color-mix(in oklab, var(--hud-glow) 55%, transparent));
+  }
+  .profile-card-corner.corner-tl {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+  }
+  .profile-card-corner.corner-tr {
+    top: -1px;
+    right: -1px;
+    border-width: 2px 2px 0 0;
+  }
+  .profile-card-corner.corner-bl {
+    bottom: -1px;
+    left: -1px;
+    border-width: 0 0 2px 2px;
+  }
+  .profile-card-corner.corner-br {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+  }
+
+  /* Spotlight — dual radial that follows the cursor (--mx, --my from JS).
+     Always partially visible (idle 0.55) so the card never looks "dead". */
+  .profile-card-spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        220px circle at var(--mx) var(--my),
+        color-mix(in oklab, var(--hud-glow) 45%, transparent) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        560px circle at var(--mx) var(--my),
+        color-mix(in oklab, var(--hud) 28%, transparent) 0%,
+        color-mix(in oklab, var(--hud) 12%, transparent) 30%,
+        transparent 65%
+      );
+    mix-blend-mode: screen;
+    opacity: 0.55;
+    transition: opacity 220ms ease-out;
+  }
+  .profile-card:hover .profile-card-spotlight {
+    opacity: 1;
+  }
+
+  /* Continuous scanline — loops top→bottom. Adds living texture. */
+  .profile-card-scan {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .profile-card-scan::before {
+    content: "";
+    position: absolute;
+    left: -8%;
+    right: -8%;
+    height: 2px;
+    top: -2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in oklab, var(--hud) 60%, transparent) 30%,
+      var(--hud-glow) 50%,
+      color-mix(in oklab, var(--hud) 60%, transparent) 70%,
+      transparent 100%
+    );
+    box-shadow:
+      0 0 16px color-mix(in oklab, var(--hud) 65%, transparent),
+      0 0 32px color-mix(in oklab, var(--hud-glow) 35%, transparent);
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .profile-card-scan::before {
+      animation: profile-card-scan 6s cubic-bezier(0.4, 0, 0.4, 1) infinite;
+    }
+  }
+  @keyframes profile-card-scan {
+    0% { top: -2px; opacity: 0; }
+    6% { opacity: 1; }
+    94% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  /* Particles — two layers of slowly drifting dots (parallax-feel). */
+  .profile-card-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.7;
+    mix-blend-mode: screen;
+  }
+  .profile-card-particles::before,
+  .profile-card-particles::after {
+    content: "";
+    position: absolute;
+    inset: -25%;
+    background-image:
+      radial-gradient(
+        circle,
+        color-mix(in oklab, var(--hud-glow) 65%, transparent) 1px,
+        transparent 1.5px
+      );
+    background-size: 64px 64px;
+  }
+  .profile-card-particles::after {
+    background-size: 96px 96px;
+    background-position: 32px 48px;
+    opacity: 0.5;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .profile-card-particles::before {
+      animation: profile-card-particles-a 22s linear infinite;
+    }
+    .profile-card-particles::after {
+      animation: profile-card-particles-b 35s linear infinite;
+    }
+  }
+  @keyframes profile-card-particles-a {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(64px, -64px, 0); }
+  }
+  @keyframes profile-card-particles-b {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-96px, 96px, 0); }
+  }
+
+  /* Holographic shimmer — diagonal gradient that sweeps across periodically. */
+  .profile-card-shimmer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    mix-blend-mode: overlay;
+    opacity: 0.85;
+  }
+  .profile-card-shimmer::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      color-mix(in oklab, var(--hud-glow) 40%, transparent) 48%,
+      color-mix(in oklab, var(--hud) 60%, transparent) 50%,
+      color-mix(in oklab, var(--hud-glow) 40%, transparent) 52%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .profile-card-shimmer::before {
+      animation: profile-card-shimmer 6.5s cubic-bezier(0.4, 0, 0.4, 1) infinite;
+    }
+  }
+  @keyframes profile-card-shimmer {
+    0% { transform: translateX(-100%); }
+    35%, 100% { transform: translateX(150%); }
+  }
+
+  /* Animated border snake — luminous segment runs along the top + bottom edges. */
+  .profile-card-snake {
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .profile-card-snake::before,
+  .profile-card-snake::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 40%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in oklab, var(--hud) 60%, transparent) 35%,
+      var(--hud-glow) 50%,
+      color-mix(in oklab, var(--hud) 60%, transparent) 65%,
+      transparent 100%
+    );
+    box-shadow:
+      0 0 8px var(--hud-glow),
+      0 0 18px color-mix(in oklab, var(--hud-glow) 60%, transparent);
+  }
+  .profile-card-snake::before {
+    top: 0;
+    left: 0;
+  }
+  .profile-card-snake::after {
+    bottom: 0;
+    right: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .profile-card-snake::before {
+      animation: profile-card-snake-h 5s linear infinite;
+    }
+    .profile-card-snake::after {
+      animation: profile-card-snake-h-rev 5s linear infinite;
+      animation-delay: 2.5s;
+    }
+  }
+  @keyframes profile-card-snake-h {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(250%); }
+  }
+  @keyframes profile-card-snake-h-rev {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-250%); }
+  }
+
+  /* Glitch RGB split — applied to a span with data-text. Triggers ~3% of the
+     time (96-98% keyframe band) so the surface stays readable but flickers. */
+  .profile-card-glitch {
+    position: relative;
+    display: inline-block;
+  }
+  .profile-card-glitch::before,
+  .profile-card-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    color: inherit;
+    overflow: hidden;
+    opacity: 0;
+    mix-blend-mode: screen;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .profile-card-glitch::before {
+      color: oklch(0.72 0.28 22);
+      transform: translate(-2px, 0);
+      animation: profile-card-glitch-r 9s steps(1, jump-end) infinite;
+    }
+    .profile-card-glitch::after {
+      color: oklch(0.78 0.22 200);
+      transform: translate(2px, 0);
+      animation: profile-card-glitch-c 9s steps(1, jump-end) infinite;
+      animation-delay: 0.06s;
+    }
+  }
+  @keyframes profile-card-glitch-r {
+    0%, 96% { opacity: 0; clip-path: inset(0 0 100% 0); }
+    96.4% { opacity: 0.85; clip-path: inset(20% 0 60% 0); }
+    96.8% { opacity: 0.85; clip-path: inset(60% 0 10% 0); }
+    97.2% { opacity: 0.85; clip-path: inset(40% 0 30% 0); }
+    97.6%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); }
+  }
+  @keyframes profile-card-glitch-c {
+    0%, 96% { opacity: 0; clip-path: inset(0 0 100% 0); }
+    96.4% { opacity: 0.85; clip-path: inset(50% 0 25% 0); }
+    96.8% { opacity: 0.85; clip-path: inset(15% 0 55% 0); }
+    97.2% { opacity: 0.85; clip-path: inset(70% 0 5% 0); }
+    97.6%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); }
+  }
+
+  /* Status indicator strip (top-right, inside card). Lifted in 3D space. */
+  .profile-card-status {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    pointer-events: none;
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--hud);
+    z-index: 2;
+  }
+  .profile-card-status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--hud-glow);
+    box-shadow:
+      0 0 6px var(--hud-glow),
+      0 0 12px color-mix(in oklab, var(--hud-glow) 60%, transparent);
+    border-radius: 50%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .profile-card-status-dot {
+      animation: profile-card-status-pulse 1.4s ease-in-out infinite;
+    }
+  }
+  @keyframes profile-card-status-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.25);
+      opacity: 0.55;
+    }
+  }
+  .profile-card-status-id {
+    color: var(--muted-foreground);
+    letter-spacing: 0.18em;
+  }
+
+  /* Parallax depth — only when 3D context is meaningful. Amplified vs. v1. */
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .profile-card-avatar {
+      transform: translateZ(64px);
+    }
+    .profile-card-info {
+      transform: translateZ(34px);
+    }
+    .profile-card-stats {
+      transform: translateZ(22px);
+    }
+    .profile-card-orgs {
+      transform: translateZ(14px);
+    }
+    .profile-card-corner {
+      transform: translateZ(40px);
+    }
+    .profile-card-status {
+      transform: translateZ(48px);
+    }
+  }
+
+  /* Avatar always carries a soft glow; intensifies on hover. */
+  @media (hover: hover) and (pointer: fine) {
+    .profile-card-avatar {
+      transition: filter 240ms ease-out;
+      filter: drop-shadow(0 4px 12px color-mix(in oklab, var(--hud) 28%, transparent));
+    }
+    .profile-card:hover .profile-card-avatar {
+      filter: drop-shadow(0 12px 28px color-mix(in oklab, var(--hud-glow) 55%, transparent));
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
